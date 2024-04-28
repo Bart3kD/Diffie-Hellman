@@ -60,5 +60,5 @@ class Server:
             client_handler.start()
 
 
-server = Server(5000)
+server = Server(5001)
 server.run_server()

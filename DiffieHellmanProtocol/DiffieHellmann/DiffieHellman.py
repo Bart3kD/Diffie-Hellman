@@ -4,6 +4,8 @@ class DH:
         self.g = 9
     
     def calcPublicSecret(self, secret):
+        if secret > self.g:
+            return False
         return pow(self.g, secret) % self.p
     def calcSharedSecret(self, privSecret, publicSecret):
         return pow(publicSecret, privSecret) % self.p

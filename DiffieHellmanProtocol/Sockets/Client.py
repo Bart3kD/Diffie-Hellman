@@ -31,9 +31,16 @@ class ClientSocket:
         self.send("connected")
         print("connected")
 
-        secret = int(input("Input your secret key: "))
-        calcedPubSecret = str(self.__dh.calcPublicSecret(secret))
-        self.send(calcedPubSecret)
+        secret = None
+
+        while secret == None:
+            secret = int(input("Input your secret key: "))
+            calcedPubSecret = str(self.__dh.calcPublicSecret(secret))
+            if calcedPubSecret == "False":
+                secret = None
+                print("Your key is too big, try again")
+            else:
+                self.send(calcedPubSecret)
 
         bob_key = int(self.receive())
 
@@ -49,6 +56,6 @@ class ClientSocket:
         finally:
             self.sock.close()
 
-client = ClientSocket(5000)
+client = ClientSocket(5001)
 client.start_client()
 
