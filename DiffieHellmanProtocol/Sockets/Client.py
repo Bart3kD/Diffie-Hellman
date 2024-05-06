@@ -1,5 +1,10 @@
 import socket
+import time
+from tkinter import *
+import customtkinter
+
 from DiffieHellmanProtocol.DiffieHellmann import DiffieHellman
+
 
 class ClientSocket:
     def __init__(self, port):
@@ -27,26 +32,54 @@ class ClientSocket:
         self.sock.send(message.encode('utf-8'))
         
     def initDiffieHellman(self):
-
         self.send("connected")
-        print("connected")
+        
 
-        secret = None
+        customtkinter.set_appearance_mode("dark")
+        customtkinter.set_default_color_theme("dark-blue")
 
-        while secret == None:
-            secret = int(input("Input your secret key: "))
-            calcedPubSecret = str(self.__dh.calcPublicSecret(secret))
-            if calcedPubSecret == "False":
-                secret = None
-                print("Your key is too big, try again")
-            else:
-                self.send(calcedPubSecret)
+        root = customtkinter.CTk()
 
-        bob_key = int(self.receive())
+        root.title('User client')
+        root.geometry('600x350')
 
-        sharedSecret = self.__dh.calcSharedSecret(secret, bob_key)
-        self.send(str(sharedSecret))      
-        print("Your shared key is: ", sharedSecret)  
+        connect_label = customtkinter.CTkLabel(root, text="connected", font=("Helvetica", 14))
+        connect_label.pack(pady=10)
+
+        my_label = customtkinter.CTkLabel(root, text="", font=("Helvetica", 24))
+        my_label.pack(pady=40)
+
+        my_entry = customtkinter.CTkEntry(root, 
+                                        placeholder_text="Enter your key"
+
+                                        )
+        my_entry.pack(pady=20)
+
+        def submit():
+            secret = None
+
+            while secret == None:
+                try:
+                    secret = int(my_entry.get())
+                except ValueError:
+                    connect_label.configure(text="Please enter an integer key")
+                calcedPubSecret = str(self.__dh.calcPublicSecret(secret))
+                if calcedPubSecret == "False":
+                    secret = None
+                    connect_label.configure(text="Your key is too big, try again")
+                else:
+                    self.send(calcedPubSecret)
+            
+            bob_key = int(self.receive())
+
+            sharedSecret = self.__dh.calcSharedSecret(secret, bob_key)
+            self.send(str(sharedSecret))      
+            my_label.configure(text="Your shared key is: " + str(sharedSecret))  
+
+        my_button = customtkinter.CTkButton(root, text="Submit", command=submit)
+        my_button.pack(pady=10)
+
+        root.mainloop()
 
     def start_client(self):
         try:
@@ -59,3 +92,33 @@ class ClientSocket:
 client = ClientSocket(5001)
 client.start_client()
 
+# customtkinter.set_appearance_mode("dark")
+# customtkinter.set_default_color_theme("dark-blue")
+
+# root = customtkinter.CTk()
+
+# root.title('User client')
+# root.geometry('600x350')
+
+# connect_label = customtkinter.CTkLabel(root, text="connected", font=("Helvetica", 14))
+# connect_label.pack(pady=10)
+
+# my_label = customtkinter.CTkLabel(root, text="", font=("Helvetica", 24))
+# my_label.pack(pady=40)
+
+# my_entry = customtkinter.CTkEntry(root, 
+#                                 placeholder_text="Enter your key"
+
+#                                 )
+# my_entry.pack(pady=20)
+
+# def submit():
+#     global value
+#     value =  my_entry.get()
+
+# my_button = customtkinter.CTkButton(root, text="Submit", command=submit)
+# my_button.pack(pady=10)
+
+
+
+# root.mainloop()
