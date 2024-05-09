@@ -61,9 +61,7 @@ class ClientSocket:
             while secret == None:
                 try:
                     secret = int(my_entry.get())
-                    print(secret)
-                    print(help(self.__dh))
-                    # print(self.__dh.getValues())
+                    print(self.__dh.getValues())
                 except ValueError:
                     connect_label.configure(text="Please enter an integer key")
                 calcedPubSecret = str(self.__dh.calcPublicSecret(secret))
@@ -71,9 +69,7 @@ class ClientSocket:
                     secret = None
                     connect_label.configure(text="Your key is too big, try again")
                 else:
-                    print(secret)
                     self.send(calcedPubSecret)
-                    print(calcedPubSecret)
             
             bob_key = int(self.receive())
 

@@ -1,7 +1,7 @@
 class DH:
     def __init__(self):
-        self.p = 200000000309
-        self.g = 200000000235
+        self.p = 200000033
+        self.g = 200000022
 
     def getValues(self):
         return self.p,self.g

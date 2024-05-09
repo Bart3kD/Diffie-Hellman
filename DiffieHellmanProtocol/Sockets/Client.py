@@ -61,6 +61,7 @@ class ClientSocket:
             while secret == None:
                 try:
                     secret = int(my_entry.get())
+                    print(self.__dh.getValues())
                 except ValueError:
                     connect_label.configure(text="Please enter an integer key")
                 calcedPubSecret = str(self.__dh.calcPublicSecret(secret))
