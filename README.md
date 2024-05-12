@@ -32,7 +32,13 @@ This command will start the server, which will listen for incoming client connec
 
 2. **Start a Client Instance**: Execute the `Client.py` script by running the following command:
 
+```
+python3 Client.py
+```
+
 This command will start a client instance and initiate the Diffie-Hellman key exchange with the server.
+
+You need 2 clients to start the key exchange.
 
 3. **Input Secret Key**: When prompted, input a secret key. This key will be used in the Diffie-Hellman key exchange process.
 
