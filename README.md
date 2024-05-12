@@ -14,3 +14,14 @@
 
 - Start the Server.py in the Sockets folder - it should open the command line and print "Server started"
 - Start the Client.py in the Sockets folder - it should open the command line and a few seconds later a window with an input for your key
+
+### Libraries I used
+1. Typing
+  - Union
+  - Any
+  - Dict
+2. Socket
+3. tkinter
+4. customtkinter
+5. threading
+6. time
