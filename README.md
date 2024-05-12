@@ -30,5 +30,5 @@
 This is where the calculations are made.
 
 Functions:
-##### - getValues:
+##### getValues:
 Returns the prime modulus (p) and base (g) used in the Diffie-Hellman protocol. The function was made for testing purposes.
