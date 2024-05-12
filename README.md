@@ -1,19 +1,46 @@
-# Diffie-Hellman Protocol
+# Diffie-Hellman Key Exchange Startup Documentation
 
-### How it works
+## Introduction
+Welcome to the startup documentation for the Diffie-Hellman Key Exchange implementation in Python. This document provides step-by-step instructions to set up and run the provided code for securely exchanging cryptographic keys over a public channel using the Diffie-Hellman protocol.
 
-- The server starts and waits for 2 clients to connect
-- After 2 clients connect the server sends information to te client that the key exchange has started
-- The client inputs an integer key which cannot be bigger than the p (check DH class)
-- On the client side the public key is calculated for each user
-- The server receives both the public keys and calculates the shared public key
-- If the shared key is the same for both clients then it gets sent to the users, if not, then an error pops up
-- The clients receives the shared key
+## Prerequisites
+Before proceeding, ensure that you have the following prerequisites installed:
+- Python 3.x
+- Required Python libraries: `socket`, `tkinter`
 
-### How to start it
+## Installation
+1. **Clone the Repository**: Clone the repository containing the Diffie-Hellman Key Exchange implementation to your local machine.
 
-- Start the Server.py in the Sockets folder - it should open the command line and print "Server started"
-- Start the Client.py in the Sockets folder - it should open the command line and a few seconds later a window with an input for your key
+2. **Navigate to the Directory**: Open your terminal or command prompt and navigate to the directory where you have cloned the repository.
+
+## Setup
+### Server Setup
+1. **Navigate to Server Directory**: Navigate to the `Server` directory within the cloned repository.
+
+2. **Start the Server**: Execute the `Server.py` script by running the following command:
+
+This command will start the server, which will listen for incoming client connections on a specified port.
+
+### Client Setup
+1. **Navigate to Client Directory**: Navigate to the `Client` directory within the cloned repository.
+
+2. **Start a Client Instance**: Execute the `Client.py` script by running the following command:
+
+This command will start a client instance and initiate the Diffie-Hellman key exchange with the server.
+
+3. **Input Secret Key**: When prompted, input a secret key. This key will be used in the Diffie-Hellman key exchange process.
+
+4. **Initiate Key Exchange**: The client will initiate the key exchange process with the server, establishing a shared secret key securely.
+
+## Usage
+1. **Communication**: Once the key exchange is complete, the client and server can communicate securely using the shared secret key.
+
+2. **Additional Functionality**: The client script also includes a graphical user interface (GUI) built using `tkinter`. You can interact with the GUI to input the secret key and display received messages.
+
+## Conclusion
+Congratulations! You have successfully set up and initiated the Diffie-Hellman Key Exchange implementation. You can now securely exchange cryptographic keys over a public channel using the provided Python code.
+
+
 
 # Technical Documentation for Diffie-Hellman Key Exchange Implementation
 
