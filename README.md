@@ -25,3 +25,10 @@
 4. customtkinter
 5. threading
 6. time
+
+### DiffieHellman.py
+This is where the calculations are made.
+
+Functions:
+##### - getValues:
+Returns the prime modulus (p) and base (g) used in the Diffie-Hellman protocol. The function was made for testing purposes.
