@@ -15,14 +15,20 @@ Before proceeding, ensure that you have the following prerequisites installed:
 
 ## Setup
 ### Server Setup
-1. **Navigate to Server Directory**: Navigate to the `Server` directory within the cloned repository.
+1. **Navigate to Server Directory**: Navigate to the `Sockets` directory within the cloned repository.
 
 2. **Start the Server**: Execute the `Server.py` script by running the following command:
+
+```
+python3 Server.py
+```
+
+   
 
 This command will start the server, which will listen for incoming client connections on a specified port.
 
 ### Client Setup
-1. **Navigate to Client Directory**: Navigate to the `Client` directory within the cloned repository.
+1. **Navigate to Client Directory**: Navigate to the `Sockets` directory within the cloned repository.
 
 2. **Start a Client Instance**: Execute the `Client.py` script by running the following command:
 
