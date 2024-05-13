@@ -2,6 +2,7 @@
 This is the file which contain the calculations of Diffie-Hellman protocol.
 """
 
+from functools import lru_cache
 
 from typing import Union
 
@@ -14,7 +15,7 @@ class DH:
 
         self.p: int = 200000033
         self.g: int = 200000022
-
+    
     def getValues(self) -> tuple[int, int]:
         """
         Returns the prime modulus (p) and base (g) used in the Diffie-Hellman protocol. The function was made for testing purposes.
@@ -26,6 +27,7 @@ class DH:
 
         return self.p, self.g
     
+    @lru_cache(maxsize=None)
     def calcPublicSecret(self, secret: int) -> Union[int, bool]:
         """
         Calculates the public secret using the provided private secret.
@@ -42,6 +44,7 @@ class DH:
             return False
         return pow(self.g, secret) % self.p
     
+    @lru_cache(maxsize=None)
     def calcSharedSecret(self, privSecret: int, publicSecret: int) -> int:
         """
         Calculates the shared secret using the provided private and public secrets.

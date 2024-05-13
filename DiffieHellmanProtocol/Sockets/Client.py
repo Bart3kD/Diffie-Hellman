@@ -106,7 +106,7 @@ class ClientSocket:
             if current_value:
                 try:
                     value = int(current_value)
-                    if value > client._ClientSocket__dh.p:
+                    if len(str(value)) >= 6:
                         connect_label.configure(text="Your key is too big, try again")
                     else:
                         connect_label.configure(text="")  
