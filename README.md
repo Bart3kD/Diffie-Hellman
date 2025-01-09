@@ -45,7 +45,7 @@ You need 2 clients to start the key exchange.
 4. **Initiate Key Exchange**: The client will initiate the key exchange process with the server, establishing a shared secret key securely.
 
 ## Usage
-1. **Communication**: Once the key exchange is complete, the client and server can communicate securely using the shared secret key.
+1. **Communication**: The program is used only for the key exchange.
 
 2. **Additional Functionality**: The client script also includes a graphical user interface (GUI) built using `tkinter`. You can interact with the GUI to input the secret key and display received messages.
 
